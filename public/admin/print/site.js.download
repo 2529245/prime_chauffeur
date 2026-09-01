@@ -1,0 +1,256 @@
+﻿
+$('#form').on("keyup keypress", function (e) {
+    var code = e.keyCode || e.which;
+    if (code == 13) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+function onChangeThemeBegin() {
+    $('.btntheme').html(`<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>`);
+}
+function onChangeThemeComplete() {
+    $('.btntheme').html(`<span class="live-icon">Change Theme</span>`);
+}
+
+function onThemeModal(res) {
+    if (res.text === 'SessionTimeout') {
+        window.location.href = '/Account/Login';
+    }
+    else {
+        $('#theme-modal').html(res);
+        $('.theme-modal').modal('show');
+    }
+}
+
+function onThemeBegin(id) {
+    $('#btntheme_' + id).html(`<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>`);
+}
+
+function OnThemeSuccess(res) {
+    if (res.response == "Success") {
+        $('.theme-modal').modal('hide');
+        SuccessPnotification(res);
+        window.location.reload();
+    }
+    else {
+        ErrorPnotification(res);
+    }
+}
+
+//Ajax Modals 
+function OnAddModal(res) {
+    if (res.text === 'SessionTimeout') {
+        window.location.href = '/Account/Login';
+    }
+    else {
+        $('#add-modal').html(res);
+        $('.add-modal').modal('show');
+    }
+}
+
+function OnEditModal(res) {
+    if (res.text === 'SessionTimeout') {
+        window.location.href = '/Account/Login';
+    }
+    else {
+        $('#edit-modal').html(res);
+        $('.edit-modal').modal('show');
+    }
+}
+
+function OnDeleteModal(res) {
+    if (res.text === 'SessionTimeout') {
+        window.location.href = '/Account/Login';
+    }
+    else {
+        $('#delete-modal').html(res);
+        $('.delete-modal').modal('show');
+    }
+}
+
+function OnViewModal(res) {
+    if (res.text === 'SessionTimeout') {
+        window.location.href = '/Account/Login';
+    }
+    else {
+        $('#view-modal').html(res);
+        $('.view-modal').modal('show');
+    }
+}
+
+function OnBeginSubmit() {
+    $('.btnSubmit').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Processing");
+}
+
+function OnBeginUpdate() {
+    $('.btnUpdate').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Processing");
+}
+
+function OnBeginDelete() {
+    $('.btnDelete').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Processing");
+}
+
+function OnCompleteSubmit() {
+    $('.btnSubmit').html("Submit");
+}
+
+function OnCompleteUpdate() {
+    $('.btnUpdate').html("Update");
+}
+
+function OnCompleteDelete() {
+    $('.btnDelete').html("Delete");
+}
+
+function onDeleteComplete() {
+    $('.btnDelete').html("Delete");
+}
+
+function onSearchBegin() {
+    $('#btnsearch').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>");
+}
+
+function onSearchComplete() {
+    $('#btnsearch').html('<i class="feather icon-search"></i> Search</a>');
+}
+
+function onAddBegin() {
+    $('#btnadd').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Processing");
+}
+
+function onAddComplete() {
+    $('#btnadd').html("<i class='feather icon-plus'></i> Add");
+}
+
+function onStatusBegin(id) {
+    $(`#btn_${id}`).html(`<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>`);
+}
+function onStatusComplete(id, text) {
+    $(`#btn_${id}`).html(text);
+}
+
+function onUploadBegin(id) {
+    $('#btnupload_' + id).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>");
+}
+
+function onUploadComplete(id) {
+    $('#btnupload_' + id).html('<i class="feather icon-upload"></i>');
+}
+
+function onBeginClose() {
+    $('#btnClose').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Processing");
+}
+
+function onCompleteClose() {
+    $('#btnClose').html("Close");
+}
+
+function onSuccessClose() {
+    $('.history-modal').modal('hide');
+}
+
+// EDIT PROCESSING SPINNER
+function onEditBegin(id) {
+    $('#btnedit_' + id).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>");
+}
+
+function onEditComplete(id) {
+    $('#btnedit_' + id).html("<i class='feather icon-edit-2'></i>");
+}
+
+// View Information
+function onViewBegin(id) {
+    $('#btnview_' + id).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>");
+}
+
+function onViewComplete(id) {
+    $('#btnview_' + id).html("<i class='feather icon-eye'></i>");
+}
+
+// Approve PROCESSING SPINNER
+function onApproveBegin(id) {
+    $('#btnapprove_' + id).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>");
+}
+
+function onApproveComplete(id) {
+    $('#btnapprove_' + id).html("<i class='feather icon-check-square'></i>");
+}
+
+//
+function onBegin(id) {
+    $('.btn_' + id).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>");
+}
+function onComplete(id, html) {
+    html = html.replace(/\"/g, "");
+    $('.btn_' + id).html("<i class='" + html + "'></i>");
+}
+
+// EMAIL SPINNER
+function onEmailBegin(id) {
+    $('#btnemail_' + id).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>");
+}
+
+function onEmailComplete(id) {
+    $('#btnemail_' + id).html(`<i class="feather icon-mail"></i>`);
+}
+
+// DELETE PROCESSING SPINNER
+function onDeleteBegin(id) {
+    $('#btndelete_' + id).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>");
+}
+
+function onDeleteComplete(id) {
+    $('#btndelete_' + id).html("<i class='feather icon-trash'></i>");
+}
+
+function onHistoryComplete(id) {
+    $('#btnedit_' + id).html("<i class='fa fa-history fa-fw'></i>");
+}
+
+function OnFailure(res) {
+    ErrorPnotification(res);
+}
+
+function onRecordEdit(id) {
+    $('.btnEdit_' + id).html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span>");
+    setTimeout(function () {
+        $('.btnEdit_' + id).html("<i class='feather icon-edit-2'></i>");
+    }, 3000);
+}
+
+$('#pnotify-primary').on('click', function () {
+    new PNotify({
+        title: 'Primary notice', text: 'Check me out! I\'m a notice.', type: 'primary'
+    });
+});
+
+var stack_bottomright = {
+    dir1: 'up',
+    dir2: 'left'
+};
+
+function SuccessPnotification(req) {
+    var notificationArgs = {
+        title: 'Success',
+        text: req.message,
+        type: req.type,
+        stack: stack_bottomright,
+        addclass: 'stack-bottomright',
+        delay: 1000
+    };
+    new PNotify(notificationArgs);
+}
+
+function ErrorPnotification(req) {
+    new PNotify({
+        title: req.title, text: req.message, type: req.type, stack: stack_bottomright, addclass: 'stack-bottomright'
+    });
+}
+
+function CustomNotification(title, message, type, delay) {
+    new PNotify({
+        title: title, text: message, type: type, stack: stack_bottomright, addclass: 'stack-bottomright', delay: delay
+    });
+}

@@ -1,0 +1,32 @@
+@media screen and (max-width: 1199px) {
+.home-banner-section p { padding: 0 20%; }
+}
+
+  
+@media screen and (max-width: 991px) {       
+.background-section { padding: 20px 0; }
+.background-section p { font-size: 16px; line-height: 24px; }
+.home-banner-section p { font-size: 16px; padding: 0 12%; }
+.footer-section ul li a, .footer-section ul li span {  font-size: 14px; line-height: 22px; }
+.footer-section p { font-size: 14px; line-height: 24px; padding-right: 20px; }
+} 
+
+
+@media screen and (max-width: 767px) {
+.home-banner-section { padding: 50px 0; }
+.home-banner-section p { padding: 0 5%; }
+.footer-section h5 { font-size: 16px; line-height: 16px; margin-bottom: 15px; }
+}
+  
+  
+  
+@media screen and (max-width: 575px) {
+.background-section p { font-size: 14px; line-height: 20px; }
+.background-section { padding: 15px 0; }
+.home-banner-section { padding: 40px 0; }
+.home-banner-section p { padding: 0 14px; font-size: 14px; line-height: 20px; }
+.footer-section p { font-size: 12px; line-height: 22px; padding: 0; }
+.footer-section h5 { font-size: 14px; line-height: 14px; margin-bottom: 10px; }
+.footer-section ul li a { font-size: 12px; line-height: 20px; }
+.footer-section ul li span { font-size: 12px; }
+}

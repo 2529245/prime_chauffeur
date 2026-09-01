@@ -1,0 +1,65 @@
+﻿
+
+$(function () {
+    //<i class="${item.icon}" style="color:white; font-size:25px;" data-toggle="tooltip" data-placement="top" title="${item.name}"></i>
+    $.ajax({
+        type: 'GET',
+        url: '/Account/GetModules',
+        data: { 'UserGroupId': $('#hfUserGroupId').val() },
+        beforeSend: function () {
+            $(".se-left-con").removeClass('d-none');
+        },
+        success: function (res) {
+            $.each(res.menu.menuList, function (i, item) {
+                $.get('/Account/CheckFileExist', { file: item.icon }, function (data) {
+
+                    if (data.type == 'exist') {
+                        $('#v-pills-tab').append(`<a class="nav-link module-list" id="v-pills-${item.formId}-tab" data-toggle="pill" href="#v-pills-${item.formId}" role="tab" aria-controls="v-pills-${item.formId}" aria-selected="false"><img src="${item.icon}" class="img-fluid" style="height:25px;" data-toggle="tooltip" data-placement="top" title="${item.name}" /></a><br><span style="color: white;font-size: 11px;text-align: center;margin-top: -7px;">${item.name}</span>`);
+                    }
+                    else {
+                        switch (item.pageTitle) {
+                            case "Setup":
+                                $('#v-pills-tab').append(`<a class="nav-link module-list" target="_blank" href="${item.applicationUrl}&Url=setup"><i class="${item.icon}" style="color:white; font-size:25px;" data-toggle="tooltip" data-placement="top" title="${item.name}"></i><br><span style="color: white;font-size: 11px;text-align: center;margin-top: -7px;">${item.name}</span>`);
+                                break;
+                            case "CMS":
+                                $('#v-pills-tab').append(`<a class="nav-link module-list" target="_blank" href="${item.applicationUrl}&Url=cms"><i class="${item.icon}" style="color:white; font-size:25px;" data-toggle="tooltip" data-placement="top" title="${item.name}"></i><br><span style="color: white;font-size: 11px;text-align: center;margin-top: -7px;">${item.name}</span>`);
+                                break;
+                            case "NMS":
+                                $('#v-pills-tab').append(`<a class="nav-link module-list" target="_blank" href="${item.applicationUrl}&Url=nms"><i class="${item.icon}" style="color:white; font-size:25px;" data-toggle="tooltip" data-placement="top" title="${item.name}"></i><br><span style="color: white;font-size: 11px;text-align: center;margin-top: -7px;">${item.name}</span>`);
+                                break;
+                            case "HelpDesk":
+                                $('#v-pills-tab').append(`<a class="nav-link module-list" target="_blank" href="${item.applicationUrl}&Url=helpdesk"><i class="${item.icon}" style="color:white; font-size:25px;" data-toggle="tooltip" data-placement="top" title="${item.name}"></i><br><span style="color: white;font-size: 11px;text-align: center;margin-top: -7px;">${item.name}</span>`);
+                                break;
+                            case "CRM":
+                                $('#v-pills-tab').append(`<a class="nav-link module-list" target="_blank" href="${item.applicationUrl}&Url=crm"><i class="${item.icon}" style="color:white; font-size:25px;" data-toggle="tooltip" data-placement="top" title="${item.name}"></i><br><span style="color: white;font-size: 11px;text-align: center;margin-top: -7px;">${item.name}</span>`);
+                                break;
+                            case "Claims":
+                                $('#v-pills-tab').append(`<a class="nav-link module-list" target="_blank" href="${item.applicationUrl}"><i class="${item.icon}" style="color:white; font-size:25px;" data-toggle="tooltip" data-placement="top" title="${item.name}"></i><br><span style="color: white;font-size: 11px;text-align: center;margin-top: -7px;">${item.name}</span>`);
+                                break;
+                           
+                        }
+                    }
+                });
+            });
+        },
+        complete: function () {
+            $(".se-left-con").addClass('d-none');
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: '/Account/GetSubModules',
+        data: { 'UserGroupId': $('#hfUserGroupId').val() },
+        beforeSend: function () {
+            $('#submodule-list').empty();
+            $(".se-right-con").removeClass('d-none');
+        },
+        success: function (res) {
+            $('#v-pills-tabContent').html(res);
+        },
+        complete: function () {
+            $(".se-right-con").addClass('d-none');
+        }
+    });
+
+});

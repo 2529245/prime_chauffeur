@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/*-------- Default Items ------------ */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*-------- HEADER ------------ */
+.main-header {
+    padding: 30px 0;
+}
+.navbar {
+    justify-content: center;
+}
+/*-------- BACKGROUND SECTION ------------ */
+.background-section {
+    background: #011013;
+    padding: 25px 0;
+}
+.background-section p {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+}
+/*-------- BANNER ------------ */
+.home-banner-section {
+    padding: 60px 0;
+}
+.home-banner-section p {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #011013;
+    padding: 0 25%;
+}
+/*-------- FOOTER ------------ */
+.footer-section {
+    padding: 40px 0;
+}
+.footer-section h5 {
+    font-size: 18px;
+    line-height: 18px;
+    margin-bottom: 19px;
+    color: #077f9a;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.footer-section p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #011013;
+    padding-right: 55px;
+}
+.footer-section ul li a {
+    font-size: 16px;
+    line-height: 30px;
+    color: #077f9a;
+    word-break: break-word;
+}
+.footer-section ul li span {
+    font-size: 16px;
+}
+.footer-section .bottom-text p {
+    padding: 0;
+}
