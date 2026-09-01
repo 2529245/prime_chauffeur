@@ -1,6 +1,8 @@
 # Prime Chauffeur — Localhost Setup (XAMPP)
 
-Follow these steps after extracting the project ZIP.
+GitHub Repository: https://github.com/2529245/prime_chauffeur/
+
+Follow these steps after cloning the GitHub repository or extracting the project ZIP.
 
 ## Required
 
